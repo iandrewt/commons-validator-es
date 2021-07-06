@@ -3,7 +3,7 @@ import {
   genericTlds,
   infrastructureTlds,
   localTlds,
-} from './tlds';
+} from '../../src/constants/tlds';
 
 describe('tld check', () => {
   it('should have local tlds sorted', () => {

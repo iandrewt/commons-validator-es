@@ -17,17 +17,18 @@
     "url": "https://github.com/iandrewt/commons-validator-es/issues"
   },
   "repository": "github:iandrewt/commons-validator-es",
-  "main": "./dist/index.js",
+  "main": "./dist/index.min.js",
+  "module": "./dist/index.es.min.js",
   "types": "./dist/index.d.ts",
-  "type": "module",
   "files": [
     "/dist"
   ],
   "scripts": {
+    "clean": "rm -rf dist",
     "test": "jest",
-    "build": "tsc",
-    "eslint": "eslint 'src/**/*.ts'",
-    "eslint:fix": "eslint --fix 'src/**/*.ts'",
+    "build": "npm run clean && tsc && rollup -c",
+    "eslint": "eslint '**/*.ts'",
+    "eslint:fix": "eslint --fix '**/*.ts'",
     "prepare": "husky install",
     "prepublish": "npm run build"
   },
@@ -36,6 +37,7 @@
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
+    "@rollup/plugin-typescript": "^8.2.1",
     "@types/jest": "^26.0.23",
     "@types/punycode": "^2.1.0",
     "@typescript-eslint/eslint-plugin": "4.28.1",
@@ -50,7 +52,11 @@
     "lint-staged": "11.0.0",
     "markdownlint": "^0.23.1",
     "prettier": "2.3.2",
+    "rollup": "^2.52.7",
+    "rollup-plugin-dts": "^3.0.2",
+    "rollup-plugin-terser": "^7.0.2",
     "ts-jest": "^27.0.3",
+    "tslib": "^1.14.1",
     "typescript": "^4.3.5"
   },
   "dependencies": {

@@ -1,4 +1,4 @@
-import isDomain from './isDomain';
+import isDomain from '../src/isDomain';
 
 describe('domain validator', () => {
   it("should pass Apache's DomainValidatorTest#testValidDomains", () => {

@@ -1,4 +1,4 @@
-import isEmail from './isEmail';
+import isEmail from '../src/isEmail';
 
 describe('email validator', () => {
   it("should pass Apache's EmailValidatorTest#testEmail", () => {

@@ -1,4 +1,4 @@
-import isIpAddress, { isIpv4Address, isIpv6Address } from './isIpAddress';
+import isIpAddress, { isIpv4Address, isIpv6Address } from '../src/isIpAddress';
 
 describe('ip address validator', () => {
   it("should pass Apache's InetAddressValidatorTest#testInetAddressesFromTheWild", () => {

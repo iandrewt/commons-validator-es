@@ -2,7 +2,7 @@ import isTld, {
   isCountryCodeTld,
   isGenericTld,
   isInfrastructureTld,
-} from './isTld';
+} from '../src/isTld';
 
 describe('tld validator', () => {
   it("should pass Apache's DomainValidatorTest#testTopLevelDomains", () => {

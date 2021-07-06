@@ -8,6 +8,7 @@
     "standard",
     "plugin:prettier/recommended"
   ],
+  "ignorePatterns": ["tsc", "dist"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "prettier", "jest"],
   "rules": {

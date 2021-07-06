@@ -3,14 +3,10 @@
     "module": "esnext",
     "target": "es2016",
     "declaration": true,
+    "declarationDir": "./tsc/types",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "outDir": "./dist"
+    "outDir": "./tsc"
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "src/**/*.test.ts"
-  ]
+  "include": ["src/**/*"]
 }
