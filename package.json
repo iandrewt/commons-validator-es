@@ -63,7 +63,7 @@
     "punycode": "^2.1.1"
   },
   "lint-staged": {
-    "src/**/*.ts": "eslint --fix"
+    "**/*.ts": "eslint --fix"
   },
   "jest": {
     "preset": "ts-jest/presets/default-esm",
