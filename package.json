@@ -2,6 +2,21 @@
   "name": "commons-validator-es",
   "version": "1.0.0",
   "description": "Apache Commons Validator ported to TypeScript",
+  "keywords": [
+    "apache",
+    "commons",
+    "validator",
+    "email-validator",
+    "email",
+    "domain",
+    "tld",
+    "ipaddress"
+  ],
+  "homepage": "https://github.com/iandrewt/commons-validator-es#readme",
+  "bugs": {
+    "url": "https://github.com/iandrewt/commons-validator-es/issues"
+  },
+  "repository": "github:iandrewt/commons-validator-es",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
@@ -16,7 +31,7 @@
     "prepublish": "npm run build"
   },
   "author": "Andrew Titmuss",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
