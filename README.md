@@ -1,17 +1,31 @@
 # commons-validator-es
 
+![npm](https://img.shields.io/npm/v/commons-validator-es)
+![npm bundle size](https://img.shields.io/bundlephobia/min/commons-validator-es)
+
 [Apache Commons Validator](https://commons.apache.org/proper/commons-validator/)
-ported to TypeScript as an ES6 module
+ported to TypeScript as a tree-shakable ES6 module
 
 ## Usage
 
 Install the library with `npm install commons-validator-es`
 
+To use as an ES6 module:
+
 ```ts
-import { isEmail } from 'commons-validator-es'
+import { isEmail } from 'commons-validator-es';
 
 isEmail('test@test.com'); // => true
 isEmail('test@test.con'); // => false!
+```
+
+It works as a CommonJS module too, for backwards compatibility
+
+```ts
+const validator = require('commons-validator-es');
+
+validator.isEmail('test@test.com'); // => true
+validator.isEmail('test@test.con'); // => false!
 ```
 
 ## Supported validators

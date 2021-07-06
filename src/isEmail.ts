@@ -8,7 +8,7 @@ const quotedUser = '("(\\\\"|[^"])*")';
 const word = '((' + validChars + "|')+|" + quotedUser + ')';
 const userRegex = new RegExp('^' + word + '(\\.' + word + ')*$');
 
-const emailRegex = /^\s*?(.+)@(.+)\s*$/;
+const emailRegex = /^("?[^"\\]*(?:\\.[^"\\]*)*"?)?@([^\s@]+)$/;
 const ipAddressRegex = /^\[(.*)\]$/;
 
 /**
