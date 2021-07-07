@@ -30,7 +30,7 @@
     "eslint": "eslint '**/*.ts'",
     "eslint:fix": "eslint --fix '**/*.ts'",
     "prepare": "husky install",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "author": "Andrew Titmuss",
   "license": "Apache-2.0",
