@@ -2,6 +2,8 @@
 
 ![npm](https://img.shields.io/npm/v/commons-validator-es)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/commons-validator-es)
+[![Node.js CI](https://github.com/iandrewt/commons-validator-es/actions/workflows/node.js.yml/badge.svg)](https://github.com/iandrewt/commons-validator-es/actions/workflows/node.js.yml)
+[![CodeQL](https://github.com/iandrewt/commons-validator-es/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/iandrewt/commons-validator-es/actions/workflows/codeql-analysis.yml)
 
 [Apache Commons Validator](https://commons.apache.org/proper/commons-validator/)
 ported to TypeScript as a tree-shakable ES6 module

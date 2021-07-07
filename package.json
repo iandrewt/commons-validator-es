@@ -26,6 +26,7 @@
   "scripts": {
     "clean": "rm -rf dist",
     "test": "jest",
+    "coverage": "jest --coverage",
     "build": "npm run clean && tsc && rollup -c",
     "eslint": "eslint '**/*.ts'",
     "eslint:fix": "eslint --fix '**/*.ts'",
