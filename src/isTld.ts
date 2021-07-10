@@ -1,10 +1,10 @@
-import { toASCII } from 'punycode/';
 import {
   countryCodeTlds,
   genericTlds,
   infrastructureTlds,
   localTlds,
 } from './constants/tlds';
+import toASCII from './helpers/toASCII';
 
 /**
  * Removes leading dot from string
@@ -82,12 +82,12 @@ export const isLocalTld = (lTld: string): boolean => {
  * @param allowLocal - whether local TLDs like ".localdomain" are allowed
  * @returns true if tld is a valid TLD, otherwise false
  */
-const isTld = (tld: string, allowLocal = false): boolean => {
+const isTld = async (tld: string, allowLocal = false): Promise<boolean> => {
   if (!tld) {
     return false;
   }
 
-  tld = toASCII(tld);
+  tld = await toASCII(chompLeadingDot(tld));
 
   if (allowLocal && isLocalTld(tld)) {
     return true;

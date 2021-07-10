@@ -1,4 +1,4 @@
-import { toASCII } from 'punycode/';
+import toASCII from './helpers/toASCII';
 import isTld from './isTld';
 
 const domainLabelRegex = '[a-zA-Z0-9](?:[a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?';
@@ -15,14 +15,17 @@ const domainRegex = new RegExp(
  * @param allowLocal - should local addresses be considered valid?
  * @returns true if the parameter is a valid domain name
  */
-const isDomain = (domain: string, allowLocal = false): boolean => {
+const isDomain = async (
+  domain: string,
+  allowLocal = false,
+): Promise<boolean> => {
   if (!domain) {
     return false;
   }
 
-  domain = toASCII(domain);
+  domain = await toASCII(domain);
 
-  if (domain.length > 253) {
+  if (!domain || domain.length > 253) {
     return false;
   }
 

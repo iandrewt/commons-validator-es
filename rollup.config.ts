@@ -28,7 +28,7 @@ const config = [
       },
     ],
     plugins: [typescript()],
-    external: ['punycode/'],
+    external: ['url'],
   },
   {
     input: './tsc/types/index.d.ts',
