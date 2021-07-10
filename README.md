@@ -7,7 +7,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/iandrewt/commons-validator-es/badge.svg)](https://coveralls.io/github/iandrewt/commons-validator-es)
 
 [Apache Commons Validator](https://commons.apache.org/proper/commons-validator/)
-ported to TypeScript as a tree-shakable ES6 module
+ported to TypeScript as a async tree-shakable ES6 module
 
 ## Usage
 
@@ -18,8 +18,8 @@ To use as an ES6 module:
 ```ts
 import { isEmail } from 'commons-validator-es';
 
-isEmail('test@test.com'); // => true
-isEmail('test@test.con'); // => false!
+await isEmail('test@test.com'); // => true
+await isEmail('test@test.con'); // => false!
 ```
 
 It works as a CommonJS module too, for backwards compatibility
@@ -27,8 +27,8 @@ It works as a CommonJS module too, for backwards compatibility
 ```ts
 const validator = require('commons-validator-es');
 
-validator.isEmail('test@test.com'); // => true
-validator.isEmail('test@test.con'); // => false!
+await validator.isEmail('test@test.com'); // => true
+await validator.isEmail('test@test.con'); // => false!
 ```
 
 ## Supported validators
