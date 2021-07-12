@@ -1,4 +1,4 @@
-import toASCII from './helpers/toASCII';
+import { toASCII } from 'helpers';
 import isTld from './isTld';
 
 const domainLabelRegex = '[a-zA-Z0-9](?:[a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?';
@@ -15,15 +15,12 @@ const domainRegex = new RegExp(
  * @param allowLocal - should local addresses be considered valid?
  * @returns true if the parameter is a valid domain name
  */
-const isDomain = async (
-  domain: string,
-  allowLocal = false,
-): Promise<boolean> => {
+const isDomain = (domain: string, allowLocal = false): boolean => {
   if (!domain) {
     return false;
   }
 
-  domain = await toASCII(domain);
+  domain = toASCII(domain);
 
   if (!domain || domain.length > 253) {
     return false;

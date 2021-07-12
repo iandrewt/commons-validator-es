@@ -6,7 +6,7 @@ import packageJson from './package.json';
 
 const config = [
   {
-    input: './tsc/index.js',
+    input: './tsc/node/index.js',
     output: [
       {
         file: packageJson.main,
@@ -29,6 +29,30 @@ const config = [
     ],
     plugins: [typescript()],
     external: ['url'],
+  },
+  {
+    input: './tsc/browser/index.js',
+    output: [
+      {
+        file: packageJson.main.replace('.min.', '.browser.min.'),
+        format: 'cjs', // commonJS
+        plugins: [terser()],
+      },
+      {
+        file: packageJson.main.replace('.min.', '.browser.'),
+        format: 'cjs',
+      },
+      {
+        file: packageJson.module.replace('.min.', '.browser.min.'),
+        format: 'es', // ES modules
+        plugins: [terser()],
+      },
+      {
+        file: packageJson.module.replace('.min.', '.browser.'),
+        format: 'es',
+      },
+    ],
+    plugins: [typescript({ tsconfig: './tsconfig.browser.json' })],
   },
   {
     input: './tsc/types/index.d.ts',

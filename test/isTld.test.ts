@@ -5,7 +5,7 @@ import isTld, {
 } from '../src/isTld';
 
 describe('tld validator', () => {
-  it("should pass Apache's DomainValidatorTest#testTopLevelDomains", async () => {
+  it("should pass Apache's DomainValidatorTest#testTopLevelDomains", () => {
     // infrastructure TLDs
     expect(isInfrastructureTld('.arpa')).toBeTruthy();
     expect(isInfrastructureTld('.com')).toBeFalsy();
@@ -19,16 +19,16 @@ describe('tld validator', () => {
     expect(isCountryCodeTld('.org')).toBeFalsy();
 
     // case-insensitive TLDs
-    expect(isTld('.COM')).resolves.toBeTruthy();
-    expect(isTld('.BiZ')).resolves.toBeTruthy();
+    expect(isTld('.COM')).toBeTruthy();
+    expect(isTld('.BiZ')).toBeTruthy();
 
     // punycode
-    expect(isTld('.xn--p1ai')).resolves.toBeTruthy();
-    expect(isTld('.\uFFFD')).resolves.toBeFalsy();
+    expect(isTld('.xn--p1ai')).toBeTruthy();
+    expect(isTld('.\uFFFD')).toBeFalsy();
 
     // corner cases
-    expect(isTld('.nope')).resolves.toBeFalsy(); // this isn't guarenteed forever
-    expect(isTld('')).resolves.toBeFalsy();
-    expect(isTld(null)).resolves.toBeFalsy();
+    expect(isTld('.nope')).toBeFalsy(); // this isn't guarenteed forever
+    expect(isTld('')).toBeFalsy();
+    expect(isTld(null)).toBeFalsy();
   });
 });

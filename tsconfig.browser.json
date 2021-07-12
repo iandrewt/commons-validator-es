@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": false,
+    "declarationDir": null,
+    "outDir": "./tsc/browser",
+    "paths": {
+      "helpers": [
+        "./src/helpers/browser"
+      ]
+    }
+  },
+  "exclude": [
+    "src/helpers/node/**/*"
+  ]
+}

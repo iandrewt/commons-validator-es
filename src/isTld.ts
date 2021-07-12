@@ -4,7 +4,7 @@ import {
   infrastructureTlds,
   localTlds,
 } from './constants/tlds';
-import toASCII from './helpers/toASCII';
+import { toASCII } from 'helpers';
 
 /**
  * Removes leading dot from string
@@ -82,12 +82,12 @@ export const isLocalTld = (lTld: string): boolean => {
  * @param allowLocal - whether local TLDs like ".localdomain" are allowed
  * @returns true if tld is a valid TLD, otherwise false
  */
-const isTld = async (tld: string, allowLocal = false): Promise<boolean> => {
+const isTld = (tld: string, allowLocal = false): boolean => {
   if (!tld) {
     return false;
   }
 
-  tld = await toASCII(chompLeadingDot(tld));
+  tld = toASCII(chompLeadingDot(tld));
 
   if (allowLocal && isLocalTld(tld)) {
     return true;

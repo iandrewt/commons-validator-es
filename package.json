@@ -18,7 +18,11 @@
   },
   "repository": "github:iandrewt/commons-validator-es",
   "main": "./dist/index.min.js",
-  "module": "./dist/index.es.min.js",
+  "module": "./dist/index.min.esm.js",
+  "browser": {
+    "./dist/index.min.js": "./dist/index.browser.min.js",
+    "./dist/index.min.esm.js": "./dist/index.browser.min.esm.js"
+  },
   "types": "./dist/index.d.ts",
   "files": [
     "/dist"
@@ -27,7 +31,7 @@
     "clean": "rm -rf dist tsc",
     "test": "jest",
     "coverage": "jest --coverage",
-    "build": "npm run clean && tsc && rollup -c",
+    "build": "npm run clean && tsc && tsc -p tsconfig.browser.json && rollup -c",
     "eslint": "eslint '**/*.ts'",
     "eslint:fix": "eslint --fix '**/*.ts'",
     "prepare": "husky install",
@@ -64,17 +68,10 @@
     "**/*.ts": "eslint --fix"
   },
   "jest": {
-    "projects": [
-      {
-        "displayName": "node",
-        "preset": "ts-jest/presets/default-esm",
-        "testEnvironment": "node"
-      },
-      {
-        "displayName": "jsdom",
-        "preset": "ts-jest/presets/default-esm",
-        "testEnvironment": "jsdom"
-      }
-    ]
+    "preset": "ts-jest/presets/default-esm",
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "^helpers$": "<rootDir>/src/helpers/node/"
+    }
   }
 }

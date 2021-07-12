@@ -19,21 +19,21 @@ const ipAddressRegex = /^\[(.*)\]$/;
  * @param allowTld - should TLDs be allowed?
  * @returns true if the email address's domain is valid.
  */
-const isValidDomain = async (
+const isValidDomain = (
   domain: string,
   allowLocal: boolean,
   allowTld: boolean,
-): Promise<boolean> => {
+): boolean => {
   const ipAddressGroups = domain.match(ipAddressRegex);
 
   if (ipAddressGroups) {
     return isIpAddress(ipAddressGroups[1]);
   }
 
-  const validDomain = await isDomain(domain, allowLocal);
+  const validDomain = isDomain(domain, allowLocal);
 
   if (allowTld) {
-    const validTld = !domain.startsWith('.') && (await isTld(domain));
+    const validTld = !domain.startsWith('.') && isTld(domain);
 
     return validDomain || validTld;
   }
@@ -62,11 +62,11 @@ const isValidUser = (user: string): boolean => {
  * @param allowTld - Should TLDs be allowed?
  * @returns true if the email address is valid.
  */
-const isEmail = async (
+const isEmail = (
   email: string,
   allowLocal = false,
   allowTld = false,
-): Promise<boolean> => {
+): boolean => {
   if (!email) {
     return false;
   }
@@ -85,7 +85,7 @@ const isEmail = async (
     return false;
   }
 
-  const isDomain = await isValidDomain(groups[2], allowLocal, allowTld);
+  const isDomain = isValidDomain(groups[2], allowLocal, allowTld);
 
   if (!isDomain) {
     return false;
